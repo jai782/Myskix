@@ -1,24 +1,27 @@
 import React from "react";
+import CategoryForm from "../../components/CategoryForm";
+import CategoryTable from "../../components/CategoryTable";
 
 export default function Categories() {
+  const handleSave = (data) => {
+    console.log("Kategori baru:", data);
+  };
+
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 p-6">
       <div>
-        <h1 className="text-3xl font-bold">Master Kategori</h1>
+        <h1 className="text-3xl font-bold text-gray-800">
+          Master Kategori
+        </h1>
+
         <p className="text-gray-500">
-          Kelola seluruh kategori barang pada sistem inventori.
+          Kelola kategori barang yang digunakan pada sistem inventori.
         </p>
       </div>
 
-      <div className="rounded-xl border bg-white p-6 shadow-sm">
-        <h2 className="mb-4 text-xl font-semibold">
-          Daftar Kategori
-        </h2>
+      <CategoryForm onSave={handleSave} />
 
-        <p className="text-gray-500">
-          Halaman ini akan menampilkan daftar kategori barang.
-        </p>
-      </div>
+      <CategoryTable />
     </div>
   );
 }
